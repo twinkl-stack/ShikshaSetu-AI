@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Student Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>🎓 College Student Registration</h1>
+
+    <form action="/dashboard" method="GET">
+
+        <label>Student Name:</label>
+        <input type="text" name="name" required>
+
+        <br><br>
+
+        <label>Select Degree:</label>
+
+     <select id="degree" name="degree">
+
+        <option value="">Select Degree</option>
+
+        <option value="btech">B.Tech</option>
+        <option value="bca">BCA</option>
+        <option value="bsc">B.Sc</option>
+        <option value="Msc">M.Sc</option>
+       <option value="bcom">B.Com</option>
+       <option value="ba">BA</option>
+
+       <option value="mca">MCA</option>
+       <option value="mtech">M.Tech</option>
+       <option value="mba">MBA</option>
+
+    </select>
+
+        <br><br>
+
+        <label>Select Year:</label>
+        <select id="year" name="year">
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+        </select>
+
+        <br><br>
+
+        <div id="branch_section">
+
+       <label>Select Branch:</label>
+
+      <select id="branch" name="branch">
+
+       <option>CSE</option>
+       <option>AI/ML</option>
+       <option>IT</option>
+       <option>ECE</option>
+       <option>Mechanical</option>
+      <option>Civil</option>
+
+    </select>
+
+    </div>
+      <br><br>
+
+     <label>Select Subject:</label>
+
+     <select id="subject" name="subject">
+
+        <option>Select Subject</option>
+
+     </select>
+        <br><br>
+        <input type="hidden" name="student_type" value="college">
+
+        <button type="submit">
+            🚀 Continue to Dashboard
+        </button>
+        
+    </form>
+    <script>
+
+     const degree = document.getElementById("degree");
+     const branchSection = document.getElementById("branch_section");
+     const subject = document.getElementById("subject");
+     degree.addEventListener("change", function(){
+        subject.innerHTML = "";
+
+        if(this.value === "bca"){
+
+            subject.innerHTML = `
+                <option>Programming in C</option>
+                <option>Python</option>
+                <option>DBMS</option>
+                <option>Data Structures</option>
+                <option>Operating System</option>
+                <option>Computer Networks</option>
+                <option>Java</option>
+            `;
+   }
+        else if(this.value==="mca"){
+
+            subject.innerHTML=`
+            <option>Advanced Java</option>
+            <option>Python</option>
+            <option>Machine Learning</option>
+            <option>Cloud Computing</option>
+            <option>Cyber Security</option>
+       `;
+
+    }
+       else if(this.value === "bcom"){
+
+            subject.innerHTML = `
+                <option>Accounting</option>
+                <option>Business Studies</option>
+                <option>Economics</option>
+                <option>Taxation</option>
+                <option>Finance</option>
+        `;
+    }
+
+        else if(this.value === "ba"){
+
+            subject.innerHTML = `
+                <option>History</option>
+                <option>Political Science</option>
+                <option>Geography</option>
+                <option>English Literature</option>
+       `;
+    }
+
+        else if(this.value === "mba"){
+
+            subject.innerHTML = `
+        <option>Marketing</option>
+        <option>Finance</option>
+        <option>Human Resource</option>
+        <option>Business Analytics</option>
+    `;
+}
+
+else if(this.value === "btech" || this.value === "mtech"){
+
+    subject.innerHTML = `
+        <option>Data Structures</option>
+        <option>DBMS</option>
+        <option>Operating System</option>
+        <option>Computer Networks</option>
+        <option>Software Engineering</option>
+    `;
+} 
+        if(
+        this.value === "btech" ||
+        this.value === "mtech"
+        ){
+        branchSection.style.display = "block";
+        }
+        else{
+        branchSection.style.display = "none";
+        }
+
+        });
+
+       window.onload = function(){
+
+    if(
+        degree.value === "btech" ||
+        degree.value === "mtech"
+    ){
+        branchSection.style.display = "block";
+    }
+    else{
+        branchSection.style.display = "none";
+    }
+
+   };
+   
+
+</script>
+</body>
+</html>

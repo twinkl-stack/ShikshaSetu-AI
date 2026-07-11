@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            🎓 <span>ShikshaSetu AI</span>
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#">Features</a></li>
+
+            <li><a href="#">About</a></li>
+
+            <li><a href="#">Contact</a></li>
+
+        </ul>
+
+        <a href="/login">
+            <button class="login-btn">
+                Login
+            </button>
+        </a>
+
+    </nav>
+    <div class="hero">
+        <h1>🎓 ShikshaSetu AI</h1>
+
+        <h3>Your Personal AI Learning Companion</h3>
+
+        <p>
+            Designed exclusively for School Students (Classes 1–12)
+        </p>
+    </div>
+
+    <section class="dashboard-hero">
+
+        <div class="hero-left">
+
+            <h1>👋 Welcome Back!</h1>
+
+            <h3>Let's continue your learning journey.</h3>
+
+            <p>
+                Every lesson completed brings you one step closer to your goals.
+            </p>
+
+        </div>
+
+        <div class="hero-right">
+
+            <h2>{{ badge }}</h2>
+
+            <h3>⭐ Level {{ level }} Learner</h3>
+
+            <div class="xp-bar">
+                <div class="xp-fill"
+                    id="xp-fill"
+                    data-progress="{{ xp_percent|default(0, true) }}">
+                </div>
+            </div>
+
+            <p><strong>{{ xp }}</strong> XP</p>
+
+            <p>Next Level Progress: {{ xp_percent }}%</p>
+
+        </div>
+
+    </section>
+
+    <section class="stats-section">
+
+        <div class="stat-card">
+            <div class="stat-icon">📖</div>
+            <h2>{{ story_count }}</h2>
+            <p>Stories Learned</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <h2>0</h2>
+            <p>Current Streak</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📝</div>
+            <h2>{{ quiz_count }}</h2>
+            <p>Mock Tests</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🗺</div>
+            <h2>{{ studyplan_count }}</h2>
+            <p>Study Plans</p>
+        </div>
+
+    </section>
+
+
+
+    <form method="post" action="/dashboard"enctype="multipart/form-data">
+        <input type="hidden"name="student_type"value="{{ student_type }}">       
+        <input type="hidden" name="student_class" value="{{ student_class }}">
+        <input type="hidden" name="subject" value="{{ subject }}">
+        <input type="hidden" name="mock_test_data" value="{{ mock_test }}">
+     
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label>Select Difficulty</label>
+
+                <select name="difficulty">
+
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Select Test Type</label>
+
+                <select name="test_type">
+
+                    <option value="chapter">📚 Chapter Test</option>
+                    <option value="subject">📖 Subject Test</option>
+                    <option value="preboard">🎯 Pre-Board Test</option>
+                    <option value="final">🏆 Final Exam Test</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Chapter</label>
+
+                <input
+                type="text"
+                name="chapter"
+                placeholder="Enter Chapter Name">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Upload Question Image</label>
+
+                <input
+                type="file"
+                name="question_image"
+                accept="image/*">
+
+            </div>
+
+        </div>
+        <br>
+    
+        <div class="form-group">
+
+            <label>Study Notes</label>
+
+            <textarea
+            rows="10"
+            placeholder="Paste your notes here..."
+            name="notes"></textarea>
+
+        </div>
+        <br>    
+        <div class="tool-section">
+
+            <h3>📖 Study Materials</h3>
+
+            <div class="button-grid">
+                <button type="submit" name="action" value="explain_hindi">
+                    Hindi
+                </button>
+
+                <button type="submit" name="action" value="explain_english">
+                    English
+                </button>
+
+                <button type="submit" name="action" value="generate_summary">
+                    Summary
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="tool-section">
+
+            <h3>🧠 Learn with AI</h3>
+
+            <div class="button-grid">
+                <button type="submit" name="action" value="story_mode">
+                    Story Learning
+                </button>
+
+                <button type="submit" name="action" value="solve_question">
+                    Solve Question
+                </button>
+                <button type="submit" name="action" value="Board Exam Coach">
+                    Board Exam Coach
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="tool-section">
+
+            <h3>📝 Assessment</h3>
+
+            <div class="button-grid">
+                <button type="submit" name="action" value="mock_test">
+                    Mock Test
+                </button>
+                <button type="submit" name="action" value="image_solver">
+                    📷 Solve From Image
+                </button>
+            </div>
+
+        </div>
+        
+
+        <div class="tool-section">
+
+            <h3>🎯 Exam Preparation</h3>
+
+            <div class="button-grid">
+                <button type="submit" name="action" value="study_plan">
+                    Exam Roadmap
+                </button>
+            </div>
+        </div>    
+    
+        <div class="tool-section">
+
+            <h3>🚀 Future Lab</h3>
+
+            <div class="button-grid">
+
+                <button type="submit" name="action" value="future_lab">
+                    🌟 Future Skills
+                </button>
+
+            </div>
+
+        </div>
+    
+
+        <div class="result-box">
+
+            <h2>
+
+                🤖 AI Response
+
+            </h2>
+
+            {% if result %}
+
+            <pre>{{ result }}</pre>
+            {% else %}
+
+            <p>
+
+                Your AI response will appear here after selecting any feature.
+
+            </p>
+
+            {% endif %}
+
+        </div>
+
+        {% if mock_test %}
+
+        <div id="mock-test-area">
+
+            <h2>📝 AI Mock Examination</h2>
+            <p>
+
+                Read every question carefully before answering.
+
+            </p>
+
+            <div id="question-box" class="mock-paper">
+                <pre>{{ mock_test }}</pre>
+            </div>
+        
+            <br>
+
+            <button id="start-test-btn" type="button">
+                ▶️ Start Test
+            </button>
+
+            <div id="timer" style="display:none;">
+                ⏳ Time Left:
+                <span id="time">00:00</span>
+            </div>
+            <h3>✍ Write Your Answer</h3>
+            <div id="answer-area" style="display:none;">
+
+                <textarea
+                    id="student-answer"
+                    name="student_answer"
+                    rows="10"
+                    cols="60"
+                    placeholder="Type your answer here..."
+                ></textarea>
+
+                <br><br>
+
+                <button
+                    id="voice-answer-btn"
+                    type="button">
+
+                    🎤 Speak Answer
+
+                </button>
+                <button
+                    type="submit"
+                    name="action"
+                    value="evaluate_mock">
+
+                    ✅ Submit Answer
+
+                </button>
+                <p>
+
+                    Your answer will be evaluated instantly by AI.
+
+                </p>
+            </div>
+
+        </div>
+        {% endif %}
+    </form>
+    
+        
+    <script>
+        // XP Bar
+        const xpFill = document.getElementById("xp-fill");
+        if (xpFill) {
+            const progress = xpFill.getAttribute("data-progress") || "0";
+            xpFill.style.width = progress + "%";
+        }
+
+        // Timer
+        const startBtn = document.getElementById("start-test-btn");
+
+        if (startBtn) {
+
+            startBtn.addEventListener("click", function () {
+
+                document.getElementById("timer").style.display = "block";
+                document.getElementById("answer-area").style.display = "block";
+
+                startBtn.style.display = "none";
+
+                let timeLeft = 30 * 60;
+
+                const timer = document.getElementById("time");
+
+                const countdown = setInterval(function () {
+
+                    let minutes = Math.floor(timeLeft / 60);
+                    let seconds = timeLeft % 60;
+
+                    timer.innerHTML =
+                        String(minutes).padStart(2, "0") +
+                        ":" +
+                        String(seconds).padStart(2, "0");
+
+                    if (timeLeft <= 0) {
+
+                        clearInterval(countdown);
+
+                        timer.innerHTML = "Time Over";
+                    }
+
+                    timeLeft--;
+
+                }, 1000);
+
+            });
+
+        }
+
+        // ==========================
+        // Voice Answer
+        // ==========================
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (SpeechRecognition) {
+
+            const recognition = new SpeechRecognition();
+
+            recognition.lang = "en-IN";
+            recognition.continuous = true;
+            recognition.interimResults = true;
+
+            const answerBox = document.getElementById("student-answer");
+            const voiceBtn = document.getElementById("voice-answer-btn");
+
+            if (voiceBtn && answerBox) {
+
+                voiceBtn.addEventListener("click", function () {
+                    recognition.start();
+                });
+
+                recognition.onresult = function(event) {
+
+                    let finalTranscript = "";
+
+                    for (let i = 0; i < event.results.length; i++) {
+                        finalTranscript += event.results[i][0].transcript + " ";
+                    }
+
+                    answerBox.value = finalTranscript;
+
+                };
+
+                recognition.onstart = function() {
+                    console.log("Recording Started");
+                };
+
+                recognition.onend = function() {
+                    console.log("Recording Ended");
+                };
+
+                recognition.onerror = function(event) {
+                    console.log("ERROR:", event.error);
+                };
+
+            }
+
+        } else {
+
+            alert("Speech Recognition is not supported in this browser.");
+
+        }
+
+    </script>
+</body>
+</html>
