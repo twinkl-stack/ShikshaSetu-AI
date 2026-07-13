@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 from google import genai
 import os
 from werkzeug.utils import secure_filename
@@ -9,6 +9,7 @@ client = genai.Client(
 )
     
 app = Flask(__name__)
+app.secret_key = "shikshasetu_secret_key"
 UPLOAD_FOLDER = "static/uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
@@ -33,10 +34,36 @@ def ask_gemini(prompt):
 @app.route("/")
 def welcome():
     return render_template("welcome.html")
+@app.route("/dashboard")
+def dashboard():
+
+    if "user" not in session:
+        return redirect(url_for("login"))
+
+    return render_template("dashboard.html")
+@app.route("/logout")
+def logout():
+
+    session.clear()
+
+    return redirect(url_for("welcome"))
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+
+    if request.method == "POST":
+
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        # Temporary Login
+        if email and password:
+
+            session["user"] = email
+
+            return redirect(url_for("dashboard"))
+
     return render_template("login.html")
 
 @app.route("/school")
