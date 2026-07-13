@@ -1,175 +1,277 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ShikshaSetu AI</title>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>ShikshaSetu AI</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
 
-    <div class="top-bar">
-        <h2>🎓 ShikshaSetu AI</h2>
+<header>
 
-        <a href="/login">
-            <button class="login-btn">Login</button>
-        </a>
-    </div>
+<nav class="navbar">
 
-    <div class="hero">
+<div class="logo">
+<i class="fa-solid fa-graduation-cap"></i>
+<span>ShikshaSetu AI</span>
+</div>
 
-        <h1>
-            Learn Smarter with <br>
-            <span>ShikshaSetu AI</span>
-        </h1>
+<ul>
 
-        <h3>Your Personal AI Learning Companion</h3>
+<li><a href="#">Home</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
 
-        <p>
-            Learn through AI • Solve Questions • Practice Mock Tests •
-            Study with Interactive Stories
-        </p>
+</ul>
 
-        <p>
-            Built for Students from Class 1 to Class 12
-        </p>
-        <div class="features">
+<a href="/login">
+<button class="login-btn">
+Login
+</button>
+</a>
 
-            <p>📷 Image Solver</p>
+</nav>
 
-            <p>📖 Story Learning </p>
+</header>
 
-            <p>📝 AI Mock Tests</p>
+<section class="hero">
 
-            <p>📚 Study Planner</p>
+<div class="hero-left">
 
-        </div>
-        
-        <a href="/login">
-            <button class="start-btn">
-                🚀  Get Started Free
-            </button>
-        </a>
-        <img
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000"
-        alt="Students Learning"
-        style="width:90%;max-width:700px;border-radius:20px;margin-top:40px;box-shadow:0 20px 40px rgba(0,0,0,.2);">
-    </div>
-    <section class="why-section">
+<h1>
+Learn Smarter with
+<span>ShikshaSetu AI</span>
+</h1>
 
-        <h2>✨ Why Choose ShikshaSetu AI?</h2>
+<p>
 
-        <p class="why-subtitle">
-            Everything a student needs to learn smarter in one place.
-        </p>
+Your Personal AI Learning Assistant for
+School & College Students.
 
-        <div class="why-grid">
+Generate Notes • Mock Tests • Story Learning •
+Study Planner • Image Solver
 
-            <div class="why-card">
-                <h3>📷</h3>
-                <h4>AI Image Solver</h4>
-                <p>Upload any question image and get instant AI explanations.</p>
-            </div>
+</p>
 
-            <div class="why-card">
-                <h3>📝</h3>
-                <h4>Smart Mock Tests</h4>
-                    <p>Practice board-style exams with AI-generated question papers.</p>
-                </div>
+<div class="hero-buttons">
 
-            <div class="why-card">
-                <h3>📖</h3>
-                <h4>Story Learning</h4>
-                <p>Understand difficult topics through interactive stories.</p>
-            </div>
+<a href="/login">
+<button class="primary-btn">
+Get Started
+</button>
+</a>
 
-            <div class="why-card">
-                <h3>📅</h3>
-                <h4>Study Planner</h4>
-                <p>Create personalized study schedules and stay consistent.</p>
-            </div>
+<a href="#features">
+<button class="secondary-btn">
+Explore
+</button>
+</a>
 
-        </div>
+</div>
 
-    </section> 
-    <section class="how-section">
+</div>
 
-        <h2>🚀 How ShikshaSetu AI Works</h2>
+<div class="hero-right">
 
-        <p class="how-subtitle">
-            Learning made simple in just four easy steps.
-        </p>
+<div class="ai-card">
 
-        <div class="steps">
+<h2>🤖 AI Mentor</h2>
 
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3>📷 Upload</h3>
-                <p>Upload your notes or question image.</p>
-            </div>
+<p>
+24×7 Learning Support
+</p>
 
-            <div class="step-arrow">➡️</div>
+<div class="floating-icons">
 
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3>🤖 AI Analysis</h3>
-                <p>AI understands and explains the topic.</p>
-            </div>
+📚 📝 🎯 💡 🚀
 
-            <div class="step-arrow">➡️</div>
+</div>
 
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3>📚 Learn</h3>
-                <p>Study using stories, explanations and summaries.</p>
-            </div>
+</div>
 
-            <div class="step-arrow">➡️</div>
+</div>
 
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <h3>🏆 Practice</h3>
-                <p>Take AI Mock Tests and improve your score.</p>
-            </div>
+</section>
 
-        </div>
+<section id="features" class="features">
 
-    </section>
-        
+<h2>✨ Features</h2>
 
+<div class="feature-grid">
 
-    <footer class="footer">
+<div class="feature-card">
+📖
+<h3>Explain Notes</h3>
+<p>Understand any topic in simple language.</p>
+</div>
 
-        <h3>🎓 ShikshaSetu AI</h3>
+<div class="feature-card">
+📝
+<h3>Mock Test</h3>
+<p>Generate board-style mock tests instantly.</p>
+</div>
 
-        <p>
-            Empowering Students with AI-Powered Learning
-        </p>
+<div class="feature-card">
+🎮
+<h3>Story Learning</h3>
+<p>Learn difficult concepts using stories.</p>
+</div>
 
-        <div class="footer-links">
+<div class="feature-card">
+📚
+<h3>Study Planner</h3>
+<p>Create personalized study plans.</p>
+</div>
 
-            <span>📷 Image Solver</span>
+<div class="feature-card">
+📷
+<h3>Image Solver</h3>
+<p>Solve questions directly from images.</p>
+</div>
 
-            <span>📝 Mock Tests</span>
+<div class="feature-card">
+🏆
+<h3>Board Coach</h3>
+<p>Exam strategy and scoring tips.</p>
+</div>
 
-            <span>📖 Story Learning</span>
+</div>
 
-            <span>📅 Study Planner</span>
+</section>
 
-        </div>
+<section class="stats">
 
-        <p class="copyright">
-            © 2026 ShikshaSetu AI | Built with ❤️ by Twinkle Sharma
-        </p>
+<div class="stat-card">
 
-    </footer>
+<h2>5000+</h2>
+
+<p>Students</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>10000+</h2>
+
+<p>Questions Solved</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>AI</h2>
+
+<p>Powered Learning</p>
+
+</div>
+
+</section>
+
+<section id="reviews" class="reviews">
+
+<h2>⭐ Student Reviews</h2>
+
+<div class="review-grid">
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+"Story Learning made difficult chapters super easy."
+
+</p>
+
+<h4>Priya Sharma</h4>
+
+<span>Class 10</span>
+
+</div>
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+"The Mock Test feature feels exactly like board exams."
+
+</p>
+
+<h4>Rahul Verma</h4>
+
+<span>Class 12</span>
+
+</div>
+
+<div class="review-card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+"My favourite feature is Study Planner. Highly recommended!"
+
+</p>
+
+<h4>Ananya Singh</h4>
+
+<span>B.Tech Student</span>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="feedback">
+
+<h2>💬 Share Your Feedback</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Write your review..."></textarea>
+
+<button type="submit">
+
+Submit Review
+
+</button>
+
+</form>
+
+</section>
+
+<footer id="contact">
+
+<p>
+
+© 2026 ShikshaSetu AI
+
+</p>
+
+<p>
+
+Made with ❤️ by Twinkle Sharma
+
+</p>
+
+</footer>
+
 </body>
+
 </html>
